@@ -14,3 +14,34 @@ Goal: By 1/1/26, have 12 consistent users reporting sessions and performance/inj
 - Week 10: straing visualization toggle off/on
 - Week 11: performance data collection
 - Week 12: row auto-fill
+
+## Set Up
+
+### Install Firebase
+
+- Mac OS: sudo curl -sL httpsL..forebase.tools | bash
+- Log in to system admin when prompted
+- Log in to firebase when prompted (browser should pop up)
+- Select existing firebse project from list (if not set up, see above (to be made) Firebase Set Up)
+- Select a project directory (AscendMetrics2 directory)
+- Run: firebase init
+- Select/Enter for default project set up
+- Select 'Hosting' product only
+
+## Commands
+
+## Emulate locally (not configured, DO NOT USE)
+
+Run: firebase emulators:deploy
+note: can be run with Github integration for easy revisions
+
+## Deploy to firebase
+
+Run: firebase deploy
+note: (not configured) see google analytics
+
+# Relevant Documentation
+
+https://firebase.google.com/docs
+https://react.dev
+https://vite.dev/guide/
