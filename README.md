@@ -44,4 +44,6 @@ note: (not configured) see google analytics
 
 https://firebase.google.com/docs
 https://react.dev
-https://vite.dev/guide/
+https://vite.dev/guide
+https://www.material-react-table.com
+https://mui.com
