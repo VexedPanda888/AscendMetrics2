@@ -1,62 +1,80 @@
+import { Box } from "@mui/material";
 import "./App.css";
-import { useMemo } from "react";
-import {
-  MaterialReactTable,
-  useMaterialReactTable,
-  type MRT_ColumnDef, //if using TypeScript (optional, but recommended)
-} from "material-react-table";
+import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import { LineChart } from "@mui/x-charts/LineChart";
 
-//If using TypeScript, define the shape of your data (optional, but recommended)
-interface Person {
-  name: string;
-  age: number;
-}
-
-//mock data - strongly typed if you are using TypeScript (optional, but recommended)
-const data: Person[] = [
+const columns: GridColDef<(typeof rows)[number]>[] = [
+  { field: "id", headerName: "ID", width: 90 },
   {
-    name: "John",
-    age: 30,
+    field: "firstName",
+    headerName: "First name",
+    width: 150,
+    editable: true,
   },
   {
-    name: "Sara",
-    age: 25,
+    field: "lastName",
+    headerName: "Last name",
+    width: 150,
+    editable: true,
+  },
+  {
+    field: "age",
+    headerName: "Age",
+    type: "number",
+    width: 110,
+    editable: true,
+  },
+  {
+    field: "fullName",
+    headerName: "Full name",
+    description: "This column has a value getter and is not sortable.",
+    sortable: false,
+    width: 160,
+    valueGetter: (_value, row) =>
+      `${row.firstName || ""} ${row.lastName || ""}`,
   },
 ];
 
+const rows = [
+  { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
+  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
+  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
+  { id: 4, lastName: "Stark", firstName: "Arya", age: 11 },
+  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
+  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
+  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
+  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
+  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
+];
+
 function App() {
-  //column definitions - strongly typed if you are using TypeScript (optional, but recommended)
-  const columns = useMemo<MRT_ColumnDef<Person>[]>(
-    () => [
-      {
-        accessorKey: "name", //simple recommended way to define a column
-        header: "Name",
-        muiTableHeadCellProps: { style: { color: "green" } }, //custom props
-        enableHiding: false, //disable a feature for this column
-      },
-      {
-        accessorFn: (originalRow) => parseInt(originalRow.age), //alternate way
-        id: "age", //id required if you use accessorFn instead of accessorKey
-        header: "Age",
-        Header: <i style={{ color: "red" }}>Age</i>, //optional custom markup
-        Cell: ({ cell }) => <i>{cell.getValue<number>().toLocaleString()}</i>, //optional custom cell render
-      },
-    ],
-    []
+  return (
+    <Box sx={{ height: 400, width: "100%", alignSelf: "center" }}>
+      <LineChart
+        xAxis={[{ data: [1, 2, 3, 5, 8, 10] }]}
+        series={[
+          {
+            data: [2, 5.5, 2, 8.5, 1.5, 5],
+          },
+        ]}
+        height={300}
+      />
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 5,
+            },
+          },
+        }}
+        pageSizeOptions={[5]}
+        checkboxSelection
+        disableRowSelectionOnClick
+      />
+    </Box>
   );
-
-  //pass table options to useMaterialReactTable
-  const table = useMaterialReactTable({
-    columns,
-    data, //must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
-    enableRowSelection: true, //enable some features
-    enableColumnOrdering: true, //enable a feature for all columns
-    enableGlobalFilter: false, //turn off a feature
-  });
-
-  //note: you can also pass table options as props directly to <MaterialReactTable /> instead of using useMaterialReactTable
-  //but the useMaterialReactTable hook will be the most recommended way to define table options
-  return <MaterialReactTable table={table} />;
 }
 
 export default App;
