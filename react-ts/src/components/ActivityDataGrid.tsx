@@ -1,4 +1,5 @@
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import type { ActivityData } from "../types/ActivityData";
 
 export default function ActivityDataGrid() {
   const columns: GridColDef<(typeof rows)[number]>[] = [
@@ -48,7 +49,7 @@ export default function ActivityDataGrid() {
     },
   ];
 
-  const rows = [
+  const rows: ActivityData[] = [
     {
       id: 1,
       date: "7/8/24",
