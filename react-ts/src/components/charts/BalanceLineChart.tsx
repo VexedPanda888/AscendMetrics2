@@ -10,6 +10,9 @@ export default function BalanceLineChart() {
         },
       ]}
       height={300}
+      sx={{
+        aspectRatio: 2,
+      }}
     />
   );
 }
