@@ -30,15 +30,15 @@ Goal: By 1/1/26, have 12 consistent users reporting sessions and performance/inj
 
 ## Commands
 
-## Emulate locally (not configured, DO NOT USE)
+## Run locally (not configured)
 
-Run: firebase emulators:deploy
-note: can be run with Github integration for easy revisions
+Run: npm run dev
+Note: run this from the react-ts directory
 
 ## Deploy to firebase
 
 Run: firebase deploy
-note: (not configured) see google analytics
+Note: (not configured) google analytics
 
 # Relevant Documentation
 
