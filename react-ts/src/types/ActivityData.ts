@@ -1,10 +1,10 @@
 export interface ActivityData {
   id: number;
-  date: string;
+  date: Date;
   activityName: string;
-  activityDuration: string;
-  upperIntensity: number;
-  fingersIntensity: number;
-  lowerIntensity: number;
-  performance: number;
+  activityDuration: number; // in minutes
+  upperIntensity: number; // out of 5
+  fingersIntensity: number; // out of 5
+  lowerIntensity: number; // out of 5
+  performance: number; // out of 5
 }

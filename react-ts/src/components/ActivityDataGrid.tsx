@@ -4,20 +4,35 @@ import type { ActivityData } from "../types/ActivityData";
 export default function ActivityDataGrid() {
   const columns: GridColDef<(typeof rows)[number]>[] = [
     { field: "id", headerName: "ID", width: 80 },
-    { field: "date", headerName: "Date", width: 100, type: "string" },
+    {
+      field: "date",
+      headerName: "Date",
+      width: 100,
+      type: "date",
+      valueFormatter: (value: Date) => {
+        return value.toLocaleDateString();
+      },
+    },
     {
       field: "activityName",
       headerName: "Activity",
-      width: 100,
+      width: 200,
       editable: true,
       type: "string",
     },
     {
       field: "activityDuration",
       headerName: "Duration",
-      type: "string",
+      type: "number",
       width: 100,
       editable: true,
+      valueFormatter: (value: number) => {
+        const hours = Math.floor(value / 60);
+        const minutes = value % 60;
+        return hours > 0
+          ? `${hours}:${minutes.toString().padStart(2, "0")}`
+          : `${minutes} min.`;
+      },
     },
     {
       field: "upperIntensity",
@@ -52,9 +67,9 @@ export default function ActivityDataGrid() {
   const rows: ActivityData[] = [
     {
       id: 1,
-      date: "7/8/24",
+      date: new Date(2024, 6, 8), // July 8, 2024 (month is 0-indexed)
       activityName: "Warm-Up",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -62,9 +77,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 2,
-      date: "7/8/24",
+      date: new Date(2024, 6, 8),
       activityName: "PumpCap/AnCap",
-      activityDuration: "0:45",
+      activityDuration: 45,
       upperIntensity: 6,
       fingersIntensity: 6,
       lowerIntensity: 2,
@@ -72,9 +87,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 3,
-      date: "7/13/24",
+      date: new Date(2024, 6, 13),
       activityName: "Bouldering",
-      activityDuration: "0:15",
+      activityDuration: 15,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -82,9 +97,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 4,
-      date: "7/13/24",
+      date: new Date(2024, 6, 13),
       activityName: "Performance",
-      activityDuration: "2:00",
+      activityDuration: 120,
       upperIntensity: 6,
       fingersIntensity: 6,
       lowerIntensity: 2,
@@ -92,9 +107,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 5,
-      date: "7/15/24",
+      date: new Date(2024, 6, 15),
       activityName: "Warm-Up",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -102,9 +117,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 6,
-      date: "7/15/24",
+      date: new Date(2024, 6, 15),
       activityName: "Bouldering",
-      activityDuration: "1:30",
+      activityDuration: 90,
       upperIntensity: 8,
       fingersIntensity: 9,
       lowerIntensity: 2,
@@ -112,9 +127,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 7,
-      date: "7/17/24",
+      date: new Date(2024, 6, 17),
       activityName: "Warm-Up",
-      activityDuration: "0:45",
+      activityDuration: 45,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -122,9 +137,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 8,
-      date: "7/17/24",
+      date: new Date(2024, 6, 17),
       activityName: "PumpCap/AnCap",
-      activityDuration: "0:45",
+      activityDuration: 45,
       upperIntensity: 7,
       fingersIntensity: 7,
       lowerIntensity: 2,
@@ -132,9 +147,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 9,
-      date: "7/20/24",
+      date: new Date(2024, 6, 20),
       activityName: "Warm-Up",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -142,9 +157,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 10,
-      date: "7/20/24",
+      date: new Date(2024, 6, 20),
       activityName: "Bouldering",
-      activityDuration: "2:00",
+      activityDuration: 120,
       upperIntensity: 7.5,
       fingersIntensity: 7.5,
       lowerIntensity: 2,
@@ -152,9 +167,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 11,
-      date: "7/22/24",
+      date: new Date(2024, 6, 22),
       activityName: "Warm-Up",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 5,
       fingersIntensity: 5,
       lowerIntensity: 2,
@@ -162,9 +177,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 12,
-      date: "7/22/24",
+      date: new Date(2024, 6, 22),
       activityName: "Bouldering",
-      activityDuration: "1:00",
+      activityDuration: 60,
       upperIntensity: 8.5,
       fingersIntensity: 7,
       lowerIntensity: 2,
@@ -172,9 +187,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 13,
-      date: "7/22/24",
+      date: new Date(2024, 6, 22),
       activityName: "Onsight",
-      activityDuration: "0:15",
+      activityDuration: 15,
       upperIntensity: 8,
       fingersIntensity: 7,
       lowerIntensity: 2,
@@ -182,9 +197,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 14,
-      date: "7/22/24",
+      date: new Date(2024, 6, 22),
       activityName: "PumpCap/AnCap",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 8.5,
       fingersIntensity: 6,
       lowerIntensity: 2,
@@ -192,9 +207,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 15,
-      date: "7/25/24",
+      date: new Date(2024, 6, 25),
       activityName: "Warm-Up",
-      activityDuration: "0:30",
+      activityDuration: 30,
       upperIntensity: 5,
       fingersIntensity: 6,
       lowerIntensity: 3,
@@ -202,9 +217,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 16,
-      date: "7/25/24",
+      date: new Date(2024, 6, 25),
       activityName: "Bouldering",
-      activityDuration: "1:15",
+      activityDuration: 75,
       upperIntensity: 7.5,
       fingersIntensity: 8.5,
       lowerIntensity: 2,
@@ -212,9 +227,9 @@ export default function ActivityDataGrid() {
     },
     {
       id: 17,
-      date: "7/25/24",
+      date: new Date(2024, 6, 25),
       activityName: "Strength",
-      activityDuration: "0:15",
+      activityDuration: 15,
       upperIntensity: 0,
       fingersIntensity: 9.5,
       lowerIntensity: 0,
