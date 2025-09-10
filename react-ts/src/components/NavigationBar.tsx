@@ -7,6 +7,10 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Paper from "@mui/material/Paper";
 
+/**
+ *
+ * @returns A bottom navigation bar with interactions conditional on sign-in state
+ */
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
   const isSignedIn = true;
@@ -43,9 +47,13 @@ export default function SimpleBottomNavigation() {
               showLabel
               icon={<LogoutIcon />}
             />
+            <BottomNavigationAction
+              label="Settings"
+              showLabel
+              icon={<SettingsIcon />}
+            />
           </>
         )}
-        <BottomNavigationAction label="Settings" icon={<SettingsIcon />} />
       </BottomNavigation>
     </Paper>
   );
