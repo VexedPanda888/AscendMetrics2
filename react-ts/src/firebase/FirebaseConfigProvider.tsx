@@ -9,7 +9,7 @@ type FirebaseConfigProviderProps = {
 /**
  * A more descriptively named wrapper for the configuration and UI provider.
  * This comes from firebase UI - a respository with drop-in authentication components.
- * s
+ *
  * @param props
  * @returns
  */
