@@ -47,3 +47,5 @@ https://react.dev
 https://vite.dev/guide
 https://www.material-react-table.com
 https://mui.com
+https://github.com/firebase/firebaseui-web/issues/1144
+https://github.com/firebase/firebaseui-web/tree/v7-alpha/examples/react
