@@ -1,11 +1,11 @@
 import * as React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-import LoginIcon from "@mui/icons-material/Login";
-import LogoutIcon from "@mui/icons-material/Logout";
+import SignInButton from "./auth/SignInButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Paper from "@mui/material/Paper";
+import SignUpButton from "./auth/SignUpButton";
+import SignOutButton from "./auth/SignOutButton";
 
 /**
  *
@@ -21,7 +21,6 @@ export default function SimpleBottomNavigation() {
       elevation={3}
     >
       <BottomNavigation
-        showLabels
         value={value}
         onChange={(_event, newValue) => {
           setValue(newValue);
@@ -29,29 +28,17 @@ export default function SimpleBottomNavigation() {
       >
         {isSignedIn ? (
           <>
-            <BottomNavigationAction
-              label="Sign In"
-              showLabel
-              icon={<LoginIcon />}
-            />
-            <BottomNavigationAction
-              label="Sign Up"
-              showLabel
-              icon={<PersonAddAltIcon />}
-            />
-          </>
-        ) : (
-          <>
-            <BottomNavigationAction
-              label="Sign Out"
-              showLabel
-              icon={<LogoutIcon />}
-            />
+            <SignOutButton />
             <BottomNavigationAction
               label="Settings"
               showLabel
               icon={<SettingsIcon />}
             />
+          </>
+        ) : (
+          <>
+            <SignInButton />
+            <SignUpButton />
           </>
         )}
       </BottomNavigation>
