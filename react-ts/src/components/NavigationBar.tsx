@@ -4,7 +4,6 @@ import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import SignInButton from "./auth/SignInButton";
 import SettingsIcon from "@mui/icons-material/Settings";
 import Paper from "@mui/material/Paper";
-import SignUpButton from "./auth/SignUpButton";
 import SignOutButton from "./auth/SignOutButton";
 
 /**
@@ -13,7 +12,7 @@ import SignOutButton from "./auth/SignOutButton";
  */
 export default function SimpleBottomNavigation() {
   const [value, setValue] = React.useState(0);
-  const isSignedIn = true;
+  const isSignedIn = false;
 
   return (
     <Paper
@@ -38,7 +37,6 @@ export default function SimpleBottomNavigation() {
         ) : (
           <>
             <SignInButton />
-            <SignUpButton />
           </>
         )}
       </BottomNavigation>
