@@ -29,24 +29,27 @@ export default function SimpleBottomNavigation() {
       elevation={3}
     >
       <BottomNavigation>
-        {user ? (
-          <>
-            <SignOutButton onSignOut={onSignOut} />
-            <BottomNavigationAction
-              label="Settings"
-              showLabel
-              icon={<SettingsIcon />}
-            />
-          </>
-        ) : (
-          <>
-            <SignInButton onClick={() => setIsModalOpen(true)} />
-            <SignInModal
-              open={isModalOpen}
-              onClose={() => setIsModalOpen(false)}
-            />
-          </>
-        )}
+        {user
+          ? [
+              <SignOutButton key={"signout"} onSignOut={onSignOut} />,
+              <BottomNavigationAction
+                key={"settings"}
+                label="Settings"
+                showLabel
+                icon={<SettingsIcon />}
+              />,
+            ]
+          : [
+              <SignInButton
+                key={"signin"}
+                onClick={() => setIsModalOpen(true)}
+              />,
+              <SignInModal
+                key={"signin-modal"}
+                open={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              />,
+            ]}
       </BottomNavigation>
     </Paper>
   );
