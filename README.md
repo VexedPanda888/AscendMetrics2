@@ -15,7 +15,7 @@ Welcome to the AscendMetrics2 project. This is a full stack web application usin
 - Select/Enter for default project set up
 - Select 'Hosting' product only
 
-## Commands
+## Commands for developers
 
 ## Run locally (not configured)
 
@@ -24,8 +24,11 @@ Note: run this from the react-ts directory
 
 ## Deploy to firebase
 
-Run: firebase deploy
-Note: (not configured) google analytics
+Run:
+
+1. npm run build
+2. firebase deploy
+   Note: (not configured) google analytics
 
 # Relevant Documentation
 
