@@ -1,1 +1,82 @@
-@import "@firebase-ui/styles/src/base.css";
+.fui-card__title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+
+.fui-card__header {
+  padding-bottom: 16px;
+}
+
+.fui-card__subtitle {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.fui-card {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.fui-form__action {
+  content-visibility: hidden;
+  border: hidden;
+  visibility: hidden;
+}
+
+.fui-button {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.fui-button:hover {
+  background-color: #1565c0;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.fui-button:active {
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2),
+    0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.fui-card fieldset {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  margin: 0 0 16px 0;
+  padding: 8px 16px 16px 16px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.fui-card fieldset:hover {
+  border-color: rgba(0, 0, 0, 0.87);
+}
+
+.fui-card fieldset:focus-within {
+  border-color: #1976d2;
+  border-width: 2px;
+  padding: 7px 15px 15px 15px; /* Adjust padding to compensate for thicker border */
+}
+
+.fui-card fieldset:focus-within legend {
+  color: #1976d2;
+  padding: 0 7px; /* Adjust padding to compensate for thicker border */
+  margin-left: -7px;
+}
