@@ -7,8 +7,8 @@ export interface ActivityData {
   date: Date;
   activityName: string;
   activityDuration: number; // in minutes
-  upperIntensity: number; // out of 5
-  fingersIntensity: number; // out of 5
-  lowerIntensity: number; // out of 5
-  performance: number; // out of 5
+  upperIntensity: number; // 0 to 5
+  fingersIntensity: number; // 0 to 5
+  lowerIntensity: number; // 0 to 5
+  performance: number; // 0 to 5
 }
