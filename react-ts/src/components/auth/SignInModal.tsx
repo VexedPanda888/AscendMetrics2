@@ -19,7 +19,6 @@ export default function SignInModal({ open, onClose }: SignInModalProps) {
           boxShadow: 24,
           p: 4,
           borderRadius: 2,
-          minWidth: 300,
           textAlign: "center",
         }}
       >
