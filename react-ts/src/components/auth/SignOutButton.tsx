@@ -2,7 +2,7 @@ import { BottomNavigationAction } from "@mui/material";
 import LogoutIcon from "@mui/icons-material/Logout";
 
 interface SignOutButtonProps {
-  onSignOut: () => Promise<void>;
+  onSignOut: () => void;
 }
 
 export default function SignOutButton({ onSignOut }: SignOutButtonProps) {

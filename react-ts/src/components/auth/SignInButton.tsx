@@ -2,7 +2,7 @@ import { BottomNavigationAction } from "@mui/material";
 import LoginIcon from "@mui/icons-material/Login";
 
 interface SignInButtonProps {
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 export default function SignInButton({ onClick }: SignInButtonProps) {
