@@ -36,7 +36,6 @@ const ActivityDataGrid: React.FC<ActivityDataGridProps> = ({
         },
       }}
       pageSizeOptions={[5]}
-      checkboxSelection
       disableRowSelectionOnClick
     />
   );
