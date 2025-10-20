@@ -9,7 +9,7 @@ Welcome to the AscendMetrics2 project. This is a full stack web application usin
 - Mac OS: sudo curl -sL httpsL..forebase.tools | bash
 - Log in to system admin when prompted
 - Log in to firebase when prompted (browser should pop up)
-- Select existing firebse project from list (if not set up, see above (to be made) Firebase Set Up)
+- Select existing firebase project from list (if not set up, see above (to be made) Firebase Set Up)
 - Select a project directory (AscendMetrics2 directory)
 - Run: firebase init
 - Select/Enter for default project set up
