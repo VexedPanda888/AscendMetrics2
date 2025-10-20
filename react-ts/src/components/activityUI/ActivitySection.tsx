@@ -11,6 +11,7 @@ import EditIcon from "@mui/icons-material/Edit";
 export function ActivitySection() {
   const [open, setOpen] = useState(false);
 
+  // here begins code required for the data grid. its placement here was a necessity due to state management for the modal
   const activityGridColumns: GridColDef<ActivityData[][number]>[] = [
     {
       field: "editButton",
@@ -54,6 +55,7 @@ export function ActivitySection() {
       </strong>
     );
   }
+  // end of data grid required code
 
   return (
     <Box>
