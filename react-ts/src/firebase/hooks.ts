@@ -13,7 +13,5 @@ export function useUser(initialUser?: User | null) {
     return () => unsubscribe();
   }, []);
 
-  console.log(user?.uid);
-
   return user;
 }

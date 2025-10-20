@@ -16,7 +16,6 @@ import { useState } from "react";
  */
 export default function SimpleBottomNavigation() {
   const user = useUser();
-  console.log("NavigationBar user:", user);
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   async function onSignOut() {
