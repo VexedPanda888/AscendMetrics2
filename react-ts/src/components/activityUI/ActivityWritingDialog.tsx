@@ -5,18 +5,18 @@ import {
   DialogTitle,
   Typography,
 } from "@mui/material";
-import SaveActivityButton from "./SaveActivityButton";
-import DeleteActivityButton from "./DeleteActivityButton";
+import SaveActivityButton from "./buttons/SaveActivityButton";
+import DeleteActivityButton from "./buttons/DeleteActivityButton";
 
-interface ActivityWritingModalProps {
+interface ActivityWritingDialogProps {
   open: boolean;
   onClose: () => void;
 }
 
-export default function ActivityWritingModal({
+export default function ActivityWritingDialog({
   open,
   onClose,
-}: ActivityWritingModalProps) {
+}: ActivityWritingDialogProps) {
   return (
     <Dialog open={open}>
       <DialogTitle>Create or Edit Activity</DialogTitle>

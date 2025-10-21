@@ -1,8 +1,8 @@
 import { Box, Button } from "@mui/material";
 import ActivityDataGrid from "./ActivityDataGrid";
 import demoRows from "./DemoActivityData";
-import NewActivityButton from "./NewActivityButton";
-import ActivityWritingModal from "./ActivityWritingModal";
+import NewActivityButton from "./buttons/NewActivityButton";
+import ActivityWritingDialog from "./ActivityWritingDialog";
 import { useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
@@ -60,7 +60,7 @@ export function ActivitySection() {
   return (
     <Box>
       <NewActivityButton onClick={() => setOpen(true)} />
-      <ActivityWritingModal open={open} onClose={() => setOpen(false)} />
+      <ActivityWritingDialog open={open} onClose={() => setOpen(false)} />
       <ActivityDataGrid columns={activityGridColumns} rows={demoRows} />
     </Box>
   );
