@@ -6,7 +6,7 @@ interface SignInModalProps {
   onClose: () => void;
 }
 
-export default function SignInModal({ open, onClose }: SignInModalProps) {
+function SignInModal({ open, onClose }: SignInModalProps) {
   return (
     <Modal open={open} onClose={onClose} aria-labelledby="sign-in-modal">
       <Box
@@ -27,3 +27,5 @@ export default function SignInModal({ open, onClose }: SignInModalProps) {
     </Modal>
   );
 }
+
+export default SignInModal;

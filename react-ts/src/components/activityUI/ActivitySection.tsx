@@ -1,13 +1,13 @@
 import { Box, Button } from "@mui/material";
 import ActivityDataGrid from "./ActivityDataGrid";
-import demoRows from "./DemoActivityData";
+import { demoRows } from "./DemoActivityData";
 import NewActivityButton from "./buttons/NewActivityButton";
 import ActivityWritingDialog from "./ActivityWritingDialog";
 import { useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
 import EditIcon from "@mui/icons-material/Edit";
-import GetActivityColumns from "./GetActivityColumns";
+import { GetActivityColumns } from "./GetActivityColumns";
 
 function ActivitySection() {
   const [open, setOpen] = useState(false);

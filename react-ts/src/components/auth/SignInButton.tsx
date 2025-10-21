@@ -5,7 +5,7 @@ interface SignInButtonProps {
   onClick: () => void;
 }
 
-export default function SignInButton({ onClick }: SignInButtonProps) {
+function SignInButton({ onClick }: SignInButtonProps) {
   return (
     <>
       <BottomNavigationAction
@@ -17,3 +17,5 @@ export default function SignInButton({ onClick }: SignInButtonProps) {
     </>
   );
 }
+
+export default SignInButton;

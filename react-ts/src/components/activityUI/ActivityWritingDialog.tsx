@@ -13,10 +13,7 @@ interface ActivityWritingDialogProps {
   onClose: () => void;
 }
 
-export default function ActivityWritingDialog({
-  open,
-  onClose,
-}: ActivityWritingDialogProps) {
+function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
   return (
     <Dialog open={open}>
       <DialogTitle>Create or Edit Activity</DialogTitle>
@@ -30,3 +27,5 @@ export default function ActivityWritingDialog({
     </Dialog>
   );
 }
+
+export default ActivityWritingDialog;

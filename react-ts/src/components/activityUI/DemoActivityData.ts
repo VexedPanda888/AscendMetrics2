@@ -1,6 +1,6 @@
 import type { ActivityData } from "../../types/ActivityData";
 
-const demoRows: ActivityData[] = [
+export const demoRows: ActivityData[] = [
   {
     id: 1,
     date: new Date(2024, 6, 8), // July 8, 2024 (month is 0-indexed)
@@ -172,5 +172,3 @@ const demoRows: ActivityData[] = [
     performance: 5,
   },
 ];
-
-export default demoRows;

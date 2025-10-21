@@ -13,8 +13,8 @@ type FirebaseConfigProviderProps = {
  * @param props
  * @returns
  */
-export default function FirebaseConfigProvider(
-  props: FirebaseConfigProviderProps
-) {
+function FirebaseConfigProvider(props: FirebaseConfigProviderProps) {
   return <ConfigProvider ui={ui}>{props.children}</ConfigProvider>;
 }
+
+export default FirebaseConfigProvider;

@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import "./App.css";
 import BalanceLineChart from "./components/charts/BalanceLineChart";
 import SimpleBottomNavigation from "./components/NavigationBar";
-import { ActivitySection } from "./components/activityUI/ActivitySection";
+import ActivitySection from "./components/activityUI/ActivitySection";
 
 function App() {
   return (

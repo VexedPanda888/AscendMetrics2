@@ -5,7 +5,7 @@ interface SignOutButtonProps {
   onSignOut: () => void;
 }
 
-export default function SignOutButton({ onSignOut }: SignOutButtonProps) {
+function SignOutButton({ onSignOut }: SignOutButtonProps) {
   return (
     <BottomNavigationAction
       label="Sign Out"
@@ -15,3 +15,5 @@ export default function SignOutButton({ onSignOut }: SignOutButtonProps) {
     />
   );
 }
+
+export default SignOutButton;

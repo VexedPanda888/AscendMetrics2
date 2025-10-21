@@ -4,12 +4,12 @@ interface DeleteActivityButtonProps {
   onClick?: () => void;
 }
 
-export default function DeleteActivityButton({
-  onClick,
-}: DeleteActivityButtonProps) {
+function DeleteActivityButton({ onClick }: DeleteActivityButtonProps) {
   return (
     <Button variant="contained" onClick={onClick} color="error">
       Delete
     </Button>
   );
 }
+
+export default DeleteActivityButton;

@@ -1,7 +1,7 @@
 import type { GridColDef } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
 
-function GetActivityColumns(): GridColDef<ActivityData[][number]>[] {
+export function GetActivityColumns(): GridColDef<ActivityData[][number]>[] {
   return [
     {
       field: "date",
@@ -21,5 +21,3 @@ function GetActivityColumns(): GridColDef<ActivityData[][number]>[] {
     },
   ];
 }
-
-export default GetActivityColumns;
