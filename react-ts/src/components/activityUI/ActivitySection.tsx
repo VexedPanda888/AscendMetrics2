@@ -7,8 +7,9 @@ import { useState } from "react";
 import type { GridColDef } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
 import EditIcon from "@mui/icons-material/Edit";
+import GetActivityColumns from "./GetActivityColumns";
 
-export function ActivitySection() {
+function ActivitySection() {
   const [open, setOpen] = useState(false);
 
   // here begins code required for the data grid. its placement here was a necessity due to state management for the modal
@@ -22,22 +23,7 @@ export function ActivitySection() {
       disableColumnMenu: true,
       renderCell: RenderEditButton,
     },
-    {
-      field: "date",
-      headerName: "Date",
-      width: 100,
-      type: "date",
-      valueFormatter: (value: Date) => {
-        return value.toLocaleDateString();
-      },
-    },
-    {
-      field: "activityName",
-      headerName: "Activity",
-      width: 200,
-      editable: true,
-      type: "string",
-    },
+    ...GetActivityColumns(),
   ];
 
   function RenderEditButton() {
@@ -65,3 +51,5 @@ export function ActivitySection() {
     </Box>
   );
 }
+
+export default ActivitySection;
