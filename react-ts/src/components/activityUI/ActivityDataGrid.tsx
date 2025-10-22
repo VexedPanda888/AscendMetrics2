@@ -12,20 +12,6 @@ const ActivityDataGrid: React.FC<ActivityDataGridProps> = ({
 }) => {
   return (
     <DataGrid
-      sx={{
-        "& .MuiDataGrid-columnHeaderTitle": {
-          whiteSpace: "normal",
-          lineHeight: "normal",
-        },
-        "& .MuiDataGrid-columnHeader": {
-          // Forced to use important since overriding inline styles
-          height: "unset !important",
-        },
-        "& .MuiDataGrid-columnHeaders": {
-          // Forced to use important since overriding inline styles
-          maxHeight: "168px !important",
-        },
-      }}
       rows={rows}
       columns={columns}
       initialState={{
