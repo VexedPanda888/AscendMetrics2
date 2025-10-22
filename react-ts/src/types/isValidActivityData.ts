@@ -2,7 +2,7 @@ import type { ActivityData } from "./ActivityData";
 
 function isValidActivityData(data: ActivityData): data is ActivityData {
   return (
-    typeof data.id === "number" &&
+    typeof data.userId === "string" &&
     data.date instanceof Date &&
     typeof data.activityName === "string" &&
     typeof data.activityDuration === "number" &&

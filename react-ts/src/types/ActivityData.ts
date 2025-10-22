@@ -3,7 +3,7 @@
  * This type is used primarily for displaying activity data in data grids.
  */
 export interface ActivityData {
-  id: number;
+  userId: string;
   date: Date;
   activityName: string;
   activityDuration: number; // in minutes
