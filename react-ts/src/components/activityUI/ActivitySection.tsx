@@ -13,6 +13,9 @@ function ActivitySection() {
   const [open, setOpen] = useState(false);
   // here begins code required for the data grid. its placement here was a necessity due to state management for the modal
   const [breakpoint, setBreakpoint] = useState("xs");
+  // so the ideal case here is that the section fetches the activity data for the user and passes it to the data grid
+  // that behavior should occur on mount and whenever the user changes or the data is modified (add/edit/delete)
+  // the other components are responsible for triggering those changes, be it deletion, addition, or editing
 
   useEffect(() => {
     const mediaQueries = [

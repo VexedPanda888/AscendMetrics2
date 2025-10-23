@@ -2,7 +2,8 @@ import type { ActivityData } from "../../types/ActivityData";
 
 export const demoRows: ActivityData[] = [
   {
-    id: 1,
+    id: "1",
+    userId: "demoUser",
     date: new Date(2024, 6, 8), // July 8, 2024 (month is 0-indexed)
     activityName: "Warm-Up",
     activityDuration: 30,
@@ -12,7 +13,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 2,
+    id: "2",
+    userId: "demoUser",
     date: new Date(2024, 6, 8),
     activityName: "PumpCap/AnCap",
     activityDuration: 45,
@@ -22,7 +24,8 @@ export const demoRows: ActivityData[] = [
     performance: 4,
   },
   {
-    id: 3,
+    id: "3",
+    userId: "demoUser",
     date: new Date(2024, 6, 13),
     activityName: "Bouldering",
     activityDuration: 15,
@@ -32,7 +35,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 4,
+    id: "4",
+    userId: "demoUser",
     date: new Date(2024, 6, 13),
     activityName: "Performance",
     activityDuration: 120,
@@ -42,7 +46,8 @@ export const demoRows: ActivityData[] = [
     performance: 4,
   },
   {
-    id: 5,
+    id: "5",
+    userId: "demoUser",
     date: new Date(2024, 6, 15),
     activityName: "Warm-Up",
     activityDuration: 30,
@@ -52,7 +57,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 6,
+    id: "6",
+    userId: "demoUser",
     date: new Date(2024, 6, 15),
     activityName: "Bouldering",
     activityDuration: 90,
@@ -62,7 +68,8 @@ export const demoRows: ActivityData[] = [
     performance: 5,
   },
   {
-    id: 7,
+    id: "7",
+    userId: "demoUser",
     date: new Date(2024, 6, 17),
     activityName: "Warm-Up",
     activityDuration: 45,
@@ -72,7 +79,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 8,
+    id: "8",
+    userId: "demoUser",
     date: new Date(2024, 6, 17),
     activityName: "PumpCap/AnCap",
     activityDuration: 45,
@@ -82,7 +90,8 @@ export const demoRows: ActivityData[] = [
     performance: 4,
   },
   {
-    id: 9,
+    id: "9",
+    userId: "demoUser",
     date: new Date(2024, 6, 20),
     activityName: "Warm-Up",
     activityDuration: 30,
@@ -92,7 +101,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 10,
+    id: "10",
+    userId: "demoUser",
     date: new Date(2024, 6, 20),
     activityName: "Bouldering",
     activityDuration: 120,
@@ -102,7 +112,8 @@ export const demoRows: ActivityData[] = [
     performance: 4,
   },
   {
-    id: 11,
+    id: "11",
+    userId: "demoUser",
     date: new Date(2024, 6, 22),
     activityName: "Warm-Up",
     activityDuration: 30,
@@ -112,7 +123,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 12,
+    id: "12",
+    userId: "demoUser",
     date: new Date(2024, 6, 22),
     activityName: "Bouldering",
     activityDuration: 60,
@@ -122,7 +134,8 @@ export const demoRows: ActivityData[] = [
     performance: 5,
   },
   {
-    id: 13,
+    id: "13",
+    userId: "demoUser",
     date: new Date(2024, 6, 22),
     activityName: "Onsight",
     activityDuration: 15,
@@ -132,7 +145,8 @@ export const demoRows: ActivityData[] = [
     performance: 5,
   },
   {
-    id: 14,
+    id: "14",
+    userId: "demoUser",
     date: new Date(2024, 6, 22),
     activityName: "PumpCap/AnCap",
     activityDuration: 30,
@@ -142,7 +156,8 @@ export const demoRows: ActivityData[] = [
     performance: 5,
   },
   {
-    id: 15,
+    id: "15",
+    userId: "demoUser",
     date: new Date(2024, 6, 25),
     activityName: "Warm-Up",
     activityDuration: 30,
@@ -152,7 +167,8 @@ export const demoRows: ActivityData[] = [
     performance: 3,
   },
   {
-    id: 16,
+    id: "16",
+    userId: "demoUser",
     date: new Date(2024, 6, 25),
     activityName: "Bouldering",
     activityDuration: 75,
@@ -162,7 +178,8 @@ export const demoRows: ActivityData[] = [
     performance: 4,
   },
   {
-    id: 17,
+    id: "17",
+    userId: "demoUser",
     date: new Date(2024, 6, 25),
     activityName: "Strength",
     activityDuration: 15,

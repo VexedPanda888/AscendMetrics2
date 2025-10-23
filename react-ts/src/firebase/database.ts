@@ -1,5 +1,4 @@
 // TODO:
-// GetOrCreateUserData - occurs on user sign in
 // CreateActivityData - occurs on new activity creation
 // GetActivityDataForUser - occurs on user sign in
 // UpdateActivityData - occurs on activity data edit
