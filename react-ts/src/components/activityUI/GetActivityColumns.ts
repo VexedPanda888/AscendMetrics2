@@ -11,7 +11,6 @@ import type { ActivityData } from "../../types/ActivityData";
 export function GetActivityColumns(
   breakpoint: string
 ): GridColDef<ActivityData[][number]>[] {
-  console.log("Current breakpoint:", breakpoint); // TODO: Remove this line after debugging
   switch (breakpoint) {
     case "xs":
       return [
