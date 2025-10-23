@@ -12,6 +12,7 @@ import { useState } from "react";
 import {
   createActivityData,
   deleteActivityData,
+  updateActivityData,
 } from "../../firebase/database";
 
 interface ActivityWritingDialogProps {
@@ -36,15 +37,27 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
   });
 
   function handleSave(activityData: ActivityData) {
+    console.log("Handling save for activity data:", activityData);
     if (activityData.id === "temp-id") {
       createActivityData(activityData)
-        .then(() => {
+        .then((newId: string) => {
           console.log("Activity data saved successfully.");
+          console.log("New activity ID:", newId);
+          setDummyData({ ...activityData, id: newId });
+          console.log("Updated dummyData with new ID:", {
+            ...activityData,
+            id: newId,
+          });
+          console.log(dummyData);
         })
         .catch((error) => {
           console.error("Error saving activity data:", error);
         });
+    } else {
+      // Update existing activity data logic would go here
+      updateActivityData(activityData);
     }
+    console.log("Updated dummyData:", dummyData);
   }
 
   function onSaveClick(activityData: ActivityData) {
