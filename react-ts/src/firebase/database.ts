@@ -15,14 +15,19 @@ import {
   addDoc,
   orderBy,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 
 export async function createActivityData(
   activityData: ActivityData
-): Promise<void> {
+): Promise<string> {
   try {
     const docRef = await addDoc(collection(db, "activities"), activityData);
+    await updateDoc(docRef, {
+      id: docRef.id,
+    });
     console.log("Activity created with ID:", docRef.id);
+    return docRef.id;
   } catch (error) {
     console.error("Error creating activity data:", error);
     throw error;
