@@ -24,7 +24,7 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
   // in addition to closing when clicked, this button should also save the activity data entered in the form
   // let's start with a manually created activity data object
   // then we can test the ability to save it to the database
-  const [dummyData, setDummyData] = useState({
+  const [activityData, setActivityData] = useState({
     id: "temp-id",
     userId: "demo-user",
     date: new Date(),
@@ -37,18 +37,11 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
   });
 
   function handleSave(activityData: ActivityData) {
-    console.log("Handling save for activity data:", activityData);
     if (activityData.id === "temp-id") {
       createActivityData(activityData)
         .then((newId: string) => {
-          console.log("Activity data saved successfully.");
-          console.log("New activity ID:", newId);
-          setDummyData({ ...activityData, id: newId });
-          console.log("Updated dummyData with new ID:", {
-            ...activityData,
-            id: newId,
-          });
-          console.log(dummyData);
+          setActivityData({ ...activityData, id: newId });
+          console.log("Activity data saved successfully with ID:", newId);
         })
         .catch((error) => {
           console.error("Error saving activity data:", error);
@@ -56,8 +49,8 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
     } else {
       // Update existing activity data logic would go here
       updateActivityData(activityData);
+      console.log("Activity data updated successfully.");
     }
-    console.log("Updated dummyData:", dummyData);
   }
 
   function onSaveClick(activityData: ActivityData) {
@@ -86,8 +79,8 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
         <Typography>Activity writing form goes here.</Typography>
       </DialogContent>
       <DialogActions>
-        <DeleteActivityButton onClick={() => onDeleteClick(dummyData.id)} />
-        <SaveActivityButton onClick={() => onSaveClick(dummyData)} />
+        <DeleteActivityButton onClick={() => onDeleteClick(activityData.id)} />
+        <SaveActivityButton onClick={() => onSaveClick(activityData)} />
       </DialogActions>
     </Dialog>
   );
