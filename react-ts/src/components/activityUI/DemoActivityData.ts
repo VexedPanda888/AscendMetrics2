@@ -1,10 +1,11 @@
 import type { ActivityData } from "../../types/ActivityData";
+import dayjs from "dayjs";
 
 export const demoRows: ActivityData[] = [
   {
     id: "1",
     userId: "demoUser",
-    date: new Date(2024, 6, 8), // July 8, 2024 (month is 0-indexed)
+    date: dayjs("2024-07-08").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 30,
     upperIntensity: 5,
@@ -15,7 +16,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "2",
     userId: "demoUser",
-    date: new Date(2024, 6, 8),
+    date: dayjs("2024-07-08").toISOString(),
     activityName: "PumpCap/AnCap",
     activityDuration: 45,
     upperIntensity: 6,
@@ -26,7 +27,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "3",
     userId: "demoUser",
-    date: new Date(2024, 6, 13),
+    date: dayjs("2024-07-13").toISOString(),
     activityName: "Bouldering",
     activityDuration: 15,
     upperIntensity: 5,
@@ -37,7 +38,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "4",
     userId: "demoUser",
-    date: new Date(2024, 6, 13),
+    date: dayjs("2024-07-13").toISOString(),
     activityName: "Performance",
     activityDuration: 120,
     upperIntensity: 6,
@@ -48,7 +49,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "5",
     userId: "demoUser",
-    date: new Date(2024, 6, 15),
+    date: dayjs("2024-07-15").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 30,
     upperIntensity: 5,
@@ -59,7 +60,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "6",
     userId: "demoUser",
-    date: new Date(2024, 6, 15),
+    date: dayjs("2024-07-15").toISOString(),
     activityName: "Bouldering",
     activityDuration: 90,
     upperIntensity: 8,
@@ -70,7 +71,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "7",
     userId: "demoUser",
-    date: new Date(2024, 6, 17),
+    date: dayjs("2024-07-17").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 45,
     upperIntensity: 5,
@@ -81,7 +82,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "8",
     userId: "demoUser",
-    date: new Date(2024, 6, 17),
+    date: dayjs("2024-07-17").toISOString(),
     activityName: "PumpCap/AnCap",
     activityDuration: 45,
     upperIntensity: 7,
@@ -92,7 +93,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "9",
     userId: "demoUser",
-    date: new Date(2024, 6, 20),
+    date: dayjs("2024-07-20").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 30,
     upperIntensity: 5,
@@ -103,7 +104,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "10",
     userId: "demoUser",
-    date: new Date(2024, 6, 20),
+    date: dayjs("2024-07-20").toISOString(),
     activityName: "Bouldering",
     activityDuration: 120,
     upperIntensity: 7.5,
@@ -114,7 +115,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "11",
     userId: "demoUser",
-    date: new Date(2024, 6, 22),
+    date: dayjs("2024-07-22").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 30,
     upperIntensity: 5,
@@ -125,7 +126,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "12",
     userId: "demoUser",
-    date: new Date(2024, 6, 22),
+    date: dayjs("2024-07-22").toISOString(),
     activityName: "Bouldering",
     activityDuration: 60,
     upperIntensity: 8.5,
@@ -136,7 +137,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "13",
     userId: "demoUser",
-    date: new Date(2024, 6, 22),
+    date: dayjs("2024-07-22").toISOString(),
     activityName: "Onsight",
     activityDuration: 15,
     upperIntensity: 8,
@@ -147,7 +148,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "14",
     userId: "demoUser",
-    date: new Date(2024, 6, 22),
+    date: dayjs("2024-07-22").toISOString(),
     activityName: "PumpCap/AnCap",
     activityDuration: 30,
     upperIntensity: 8.5,
@@ -158,7 +159,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "15",
     userId: "demoUser",
-    date: new Date(2024, 6, 25),
+    date: dayjs("2024-07-25").toISOString(),
     activityName: "Warm-Up",
     activityDuration: 30,
     upperIntensity: 5,
@@ -169,7 +170,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "16",
     userId: "demoUser",
-    date: new Date(2024, 6, 25),
+    date: dayjs("2024-07-25").toISOString(),
     activityName: "Bouldering",
     activityDuration: 75,
     upperIntensity: 7.5,
@@ -180,7 +181,7 @@ export const demoRows: ActivityData[] = [
   {
     id: "17",
     userId: "demoUser",
-    date: new Date(2024, 6, 25),
+    date: dayjs("2024-07-25").toISOString(),
     activityName: "Strength",
     activityDuration: 15,
     upperIntensity: 0,

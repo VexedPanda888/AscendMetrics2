@@ -1,14 +1,17 @@
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import {
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-  Typography,
+  Rating,
+  Slider,
+  TextField,
 } from "@mui/material";
+import dayjs, { Dayjs } from "dayjs";
 import SaveActivityButton from "./buttons/SaveActivityButton";
 import DeleteActivityButton from "./buttons/DeleteActivityButton";
 import type { ActivityData } from "../../types/ActivityData";
-import { useState } from "react";
 import {
   createActivityData,
   deleteActivityData,
@@ -18,24 +21,16 @@ import {
 interface ActivityWritingDialogProps {
   open: boolean;
   onClose: () => void;
+  activityData: ActivityData | null;
+  setActivityData: (data: ActivityData) => void;
 }
 
-function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
-  // in addition to closing when clicked, this button should also save the activity data entered in the form
-  // let's start with a manually created activity data object
-  // then we can test the ability to save it to the database
-  const [activityData, setActivityData] = useState({
-    id: "temp-id",
-    userId: "demo-user",
-    date: new Date(),
-    activityName: "Demo Activity",
-    activityDuration: 30,
-    performance: 5,
-    upperIntensity: 5,
-    fingersIntensity: 5,
-    lowerIntensity: 5,
-  });
-
+function ActivityWritingDialog({
+  open,
+  onClose,
+  activityData,
+  setActivityData,
+}: ActivityWritingDialogProps) {
   function handleSave(activityData: ActivityData) {
     if (activityData.id === "temp-id") {
       createActivityData(activityData)
@@ -47,16 +42,18 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
           console.error("Error saving activity data:", error);
         });
     } else {
-      // Update existing activity data logic would go here
       updateActivityData(activityData);
       console.log("Activity data updated successfully.");
     }
   }
 
-  function onSaveClick(activityData: ActivityData) {
-    handleSave(activityData);
+  function onSaveClick(activityData: ActivityData | null) {
+    if (activityData) {
+      handleSave(activityData);
+    }
     onClose();
   }
+
   function handleDelete(id: string) {
     deleteActivityData(id)
       .then(() => {
@@ -67,19 +64,106 @@ function ActivityWritingDialog({ open, onClose }: ActivityWritingDialogProps) {
       });
   }
 
-  function onDeleteClick(id: string) {
-    handleDelete(id);
+  function onDeleteClick(id: string | null) {
+    if (id) {
+      handleDelete(id);
+    }
     onClose();
+  }
+
+  function updateField<K extends keyof ActivityData>(
+    field: K,
+    value: ActivityData[K]
+  ) {
+    if (activityData) {
+      setActivityData({ ...activityData, [field]: value });
+    }
   }
 
   return (
     <Dialog open={open}>
       <DialogTitle>Create or Edit Activity</DialogTitle>
       <DialogContent>
-        <Typography>Activity writing form goes here.</Typography>
+        <DatePicker
+          label="Date"
+          value={activityData?.date ? dayjs(activityData.date) : null}
+          onChange={(newDate: Dayjs | null) => {
+            if (newDate) {
+              updateField("date", newDate.toISOString());
+            }
+          }}
+        />
+        <TextField
+          label="Activity Name"
+          fullWidth
+          margin="normal"
+          value={activityData?.activityName || ""}
+          onChange={(e) => updateField("activityName", e.target.value)}
+        />
+        <div style={{ marginTop: "16px" }}>
+          <label>Performance</label>
+          <Rating
+            value={activityData?.performance || 0}
+            onChange={(_, newValue) => {
+              if (newValue !== null) {
+                updateField("performance", newValue);
+              }
+            }}
+          />
+        </div>
+        <div style={{ marginTop: "24px" }}>
+          <label>Fingers Intensity</label>
+          <Slider
+            shiftStep={1}
+            step={1}
+            marks
+            min={0}
+            max={5}
+            value={activityData?.fingersIntensity || 0}
+            onChange={(_, newValue) => {
+              if (typeof newValue === "number") {
+                updateField("fingersIntensity", newValue);
+              }
+            }}
+          />
+        </div>
+        <div style={{ marginTop: "24px" }}>
+          <label>Upper Body Intensity</label>
+          <Slider
+            shiftStep={1}
+            step={1}
+            marks
+            min={0}
+            max={5}
+            value={activityData?.upperIntensity || 0}
+            onChange={(_, newValue) => {
+              if (typeof newValue === "number") {
+                updateField("upperIntensity", newValue);
+              }
+            }}
+          />
+        </div>
+        <div style={{ marginTop: "24px" }}>
+          <label>Lower Body Intensity</label>
+          <Slider
+            shiftStep={1}
+            step={1}
+            marks
+            min={0}
+            max={5}
+            value={activityData?.lowerIntensity || 0}
+            onChange={(_, newValue) => {
+              if (typeof newValue === "number") {
+                updateField("lowerIntensity", newValue);
+              }
+            }}
+          />
+        </div>
       </DialogContent>
       <DialogActions>
-        <DeleteActivityButton onClick={() => onDeleteClick(activityData.id)} />
+        <DeleteActivityButton
+          onClick={() => onDeleteClick(activityData ? activityData.id : null)}
+        />
         <SaveActivityButton onClick={() => onSaveClick(activityData)} />
       </DialogActions>
     </Dialog>

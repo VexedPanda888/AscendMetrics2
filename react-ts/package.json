@@ -21,6 +21,7 @@
     "@mui/x-charts": "^8.11.0",
     "@mui/x-data-grid": "^8.11.0",
     "@mui/x-date-pickers": "^8.11.0",
+    "dayjs": "^1.11.18",
     "firebase": "^12.4.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

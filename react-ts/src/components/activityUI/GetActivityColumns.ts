@@ -1,5 +1,6 @@
 import type { GridColDef } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
+import dayjs from "dayjs";
 
 // Each breakpoint (a key) matches with a fixed screen width (a value):
 // xs, extra-small: 0px
@@ -19,8 +20,8 @@ export function GetActivityColumns(
           headerName: "Date",
           width: 100,
           type: "date",
-          valueFormatter: (value: Date) => {
-            return value.toLocaleDateString();
+          valueFormatter: (value: string) => {
+            return dayjs(value).format("M/D/YYYY");
           },
         },
         {
@@ -38,8 +39,8 @@ export function GetActivityColumns(
           headerName: "Date",
           width: 100,
           type: "date",
-          valueFormatter: (value: Date) => {
-            return value.toLocaleDateString();
+          valueFormatter: (value: string) => {
+            return dayjs(value).format("M/D/YYYY");
           },
         },
         {
@@ -71,8 +72,8 @@ export function GetActivityColumns(
           headerName: "Date",
           width: 100,
           type: "date",
-          valueFormatter: (value: Date) => {
-            return value.toLocaleDateString();
+          valueFormatter: (value: string) => {
+            return dayjs(value).format("M/D/YYYY");
           },
         },
         {
@@ -111,8 +112,8 @@ export function GetActivityColumns(
           headerName: "Date",
           width: 100,
           type: "date",
-          valueFormatter: (value: Date) => {
-            return value.toLocaleDateString();
+          valueFormatter: (value: string) => {
+            return dayjs(value).format("M/D/YYYY");
           },
         },
         {
@@ -172,8 +173,8 @@ export function GetActivityColumns(
           headerName: "Date",
           width: 100,
           type: "date",
-          valueFormatter: (value: Date) => {
-            return value.toLocaleDateString();
+          valueFormatter: (value: string) => {
+            return dayjs(value).format("M/D/YYYY");
           },
         },
         {
@@ -226,6 +227,5 @@ export function GetActivityColumns(
           editable: true,
         },
       ];
-      break;
   }
 }
