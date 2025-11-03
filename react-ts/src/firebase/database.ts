@@ -16,6 +16,7 @@ import {
   orderBy,
   setDoc,
   updateDoc,
+  where,
 } from "firebase/firestore";
 
 export async function createActivityData(
@@ -39,7 +40,11 @@ export async function getActivityDataForUser(
 ): Promise<ActivityData[]> {
   try {
     const activitiesRef = collection(db, "activities");
-    const q = query(activitiesRef, orderBy("date", "desc"));
+    const q = query(
+      activitiesRef,
+      where("userId", "==", userId),
+      orderBy("date", "desc")
+    );
     const snapshot = await getDocs(q);
 
     const activities = snapshot.docs.map((doc) => doc.data() as ActivityData);
