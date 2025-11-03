@@ -1,6 +1,5 @@
 import { Box, Button, Grid } from "@mui/material";
 import ActivityDataGrid from "./ActivityDataGrid";
-import { demoRows } from "./DemoActivityData";
 import NewActivityButton from "./buttons/NewActivityButton";
 import ActivityWritingDialog from "./ActivityWritingDialog";
 import { useEffect, useState } from "react";
