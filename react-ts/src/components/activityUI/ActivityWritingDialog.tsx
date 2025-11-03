@@ -7,6 +7,7 @@ import {
   Rating,
   Slider,
   TextField,
+  Typography,
 } from "@mui/material";
 import dayjs, { Dayjs } from "dayjs";
 import SaveActivityButton from "./buttons/SaveActivityButton";
@@ -92,73 +93,78 @@ function ActivityWritingDialog({
               updateField("date", newDate.toISOString());
             }
           }}
+          sx={{ marginTop: 1, width: "100%" }}
         />
         <TextField
           label="Activity Name"
           fullWidth
-          margin="normal"
           value={activityData?.activityName || ""}
           onChange={(e) => updateField("activityName", e.target.value)}
+          sx={{ marginTop: 2 }}
         />
-        <div style={{ marginTop: "16px" }}>
-          <label>Performance</label>
-          <Rating
-            value={activityData?.performance || 0}
-            onChange={(_, newValue) => {
-              if (newValue !== null) {
-                updateField("performance", newValue);
-              }
-            }}
-          />
-        </div>
-        <div style={{ marginTop: "24px" }}>
-          <label>Fingers Intensity</label>
-          <Slider
-            shiftStep={1}
-            step={1}
-            marks
-            min={0}
-            max={5}
-            value={activityData?.fingersIntensity || 0}
-            onChange={(_, newValue) => {
-              if (typeof newValue === "number") {
-                updateField("fingersIntensity", newValue);
-              }
-            }}
-          />
-        </div>
-        <div style={{ marginTop: "24px" }}>
-          <label>Upper Body Intensity</label>
-          <Slider
-            shiftStep={1}
-            step={1}
-            marks
-            min={0}
-            max={5}
-            value={activityData?.upperIntensity || 0}
-            onChange={(_, newValue) => {
-              if (typeof newValue === "number") {
-                updateField("upperIntensity", newValue);
-              }
-            }}
-          />
-        </div>
-        <div style={{ marginTop: "24px" }}>
-          <label>Lower Body Intensity</label>
-          <Slider
-            shiftStep={1}
-            step={1}
-            marks
-            min={0}
-            max={5}
-            value={activityData?.lowerIntensity || 0}
-            onChange={(_, newValue) => {
-              if (typeof newValue === "number") {
-                updateField("lowerIntensity", newValue);
-              }
-            }}
-          />
-        </div>
+        <TextField
+          label="Duration (in minutes)"
+          fullWidth
+          value={activityData?.activityDuration || ""}
+          onChange={(e) =>
+            updateField("activityDuration", Number(e.target.value))
+          }
+          sx={{ marginTop: 2 }}
+        />
+        <Typography component="legend">Performance (1-5)</Typography>
+        <Rating
+          value={activityData?.performance || 0}
+          onChange={(_, newValue) => {
+            if (newValue !== null) {
+              updateField("performance", newValue);
+            }
+          }}
+          size="large"
+        />
+        <Typography component="legend">
+          Fingers and Forearms Intensity (0-5)
+        </Typography>
+        <Slider
+          shiftStep={1}
+          step={1}
+          marks
+          min={0}
+          max={5}
+          value={activityData?.fingersIntensity || 0}
+          onChange={(_, newValue) => {
+            if (typeof newValue === "number") {
+              updateField("fingersIntensity", newValue);
+            }
+          }}
+        />
+        <Typography component="legend">Upper Body Intensity (0-5)</Typography>
+        <Slider
+          shiftStep={1}
+          step={1}
+          marks
+          min={0}
+          max={5}
+          value={activityData?.upperIntensity || 0}
+          onChange={(_, newValue) => {
+            if (typeof newValue === "number") {
+              updateField("upperIntensity", newValue);
+            }
+          }}
+        />
+        <Typography component="legend">Lower Body Intensity (0-5)</Typography>
+        <Slider
+          shiftStep={1}
+          step={1}
+          marks
+          min={0}
+          max={5}
+          value={activityData?.lowerIntensity || 0}
+          onChange={(_, newValue) => {
+            if (typeof newValue === "number") {
+              updateField("lowerIntensity", newValue);
+            }
+          }}
+        />
       </DialogContent>
       <DialogActions>
         <DeleteActivityButton
