@@ -7,7 +7,7 @@ interface DeleteActivityButtonProps {
 function DeleteActivityButton({ onClick }: DeleteActivityButtonProps) {
   return (
     <Button variant="contained" onClick={onClick} color="error">
-      Delete
+      Delete / Cancel
     </Button>
   );
 }
