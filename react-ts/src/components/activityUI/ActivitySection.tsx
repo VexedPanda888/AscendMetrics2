@@ -23,6 +23,7 @@ function ActivitySection() {
   // that behavior should occur on mount and whenever the user changes or the data is modified (add/edit/delete)
   // the other components are responsible for triggering those changes, be it deletion, addition, or editing
 
+  // this useEffect handles window resizing. the data grid alters displayed columns depending on viewport size
   useEffect(() => {
     const mediaQueries = [
       { name: "xs", query: "(max-width: 639px)" },
@@ -49,13 +50,17 @@ function ActivitySection() {
     };
   }, []);
 
-  useEffect(() => {
+  const fetchActivityDataForUser = () => {
     if (user) {
       getActivityDataForUser(user.uid).then((newActivities) => {
         setAllActivities(newActivities);
       });
+    } else {
+      setAllActivities([]);
     }
-  }, [user]);
+  };
+  // this useEffect handles user data fetching once logged in or out
+  useEffect(fetchActivityDataForUser, [user]);
 
   const activityGridColumns: GridColDef<ActivityData[][number]>[] = [
     {
@@ -91,7 +96,7 @@ function ActivitySection() {
     <Box>
       <Grid container spacing={1}>
         <Grid size={2}>
-          <RefreshButton onClick={() => null} />
+          <RefreshButton onClick={fetchActivityDataForUser} />
         </Grid>
         <Grid size={10}>
           <NewActivityButton
