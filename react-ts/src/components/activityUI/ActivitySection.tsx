@@ -62,19 +62,6 @@ function ActivitySection() {
   // this useEffect handles user data fetching once logged in or out
   useEffect(fetchActivityDataForUser, [user]);
 
-  const activityGridColumns: GridColDef<ActivityData[][number]>[] = [
-    {
-      field: "editButton",
-      headerName: "Edit",
-      width: 55,
-      sortable: false,
-      filterable: false,
-      disableColumnMenu: true,
-      renderCell: RenderEditButton,
-    },
-    ...GetActivityColumns(breakpoint),
-  ];
-
   function RenderEditButton() {
     return (
       <strong>
@@ -90,6 +77,19 @@ function ActivitySection() {
       </strong>
     );
   }
+  const activityGridColumns: GridColDef<ActivityData[][number]>[] = [
+    {
+      field: "editButton",
+      headerName: "Edit",
+      width: 55,
+      sortable: false,
+      filterable: false,
+      disableColumnMenu: true,
+      renderCell: RenderEditButton,
+    },
+    ...GetActivityColumns(breakpoint),
+  ];
+
   // end of data grid required code
 
   return (
