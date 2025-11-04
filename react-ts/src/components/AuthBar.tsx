@@ -14,7 +14,7 @@ import { useState } from "react";
  *
  * @returns A bottom navigation bar with interactions conditional on sign-in state
  */
-function SimpleBottomNavigation() {
+function AuthBar() {
   const user = useUser();
   const [isModalOpen, setIsModalOpen] = useState(true);
 
@@ -54,4 +54,4 @@ function SimpleBottomNavigation() {
   );
 }
 
-export default SimpleBottomNavigation;
+export default AuthBar;

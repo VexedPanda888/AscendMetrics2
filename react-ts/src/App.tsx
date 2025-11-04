@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import "./App.css";
 import BalanceLineChart from "./components/charts/BalanceLineChart";
-import SimpleBottomNavigation from "./components/NavigationBar";
+import AuthBar from "./components/AuthBar";
 import ActivitySection from "./components/activityUI/ActivitySection";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <Box sx={{ height: "100%", width: "100%" }}>
       <BalanceLineChart />
       <ActivitySection />
-      <SimpleBottomNavigation />
+      <AuthBar />
     </Box>
   );
 }
