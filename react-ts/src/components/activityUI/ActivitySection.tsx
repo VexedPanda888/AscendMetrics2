@@ -1,4 +1,4 @@
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import ActivityDataGrid from "./ActivityDataGrid";
 import NewActivityButton from "./buttons/NewActivityButton";
 import ActivityWritingDialog from "./ActivityWritingDialog";
@@ -9,7 +9,6 @@ import EditIcon from "@mui/icons-material/Edit";
 import { GetActivityColumns } from "./GetActivityColumns";
 import { useUser } from "../../firebase/hooks";
 import dayjs from "dayjs";
-import RefreshButton from "./buttons/RefreshButton";
 import { getActivityDataForUser } from "../../firebase/database";
 
 function ActivitySection() {
@@ -95,29 +94,23 @@ function ActivitySection() {
 
   return (
     <Box>
-      <Grid container spacing={1}>
-        <Grid size={2}>
-          <RefreshButton onClick={fetchActivityDataForUser} />
-        </Grid>
-        <Grid size={10}>
-          <NewActivityButton
-            onClick={() => {
-              setOpen(true);
-              setActivityData({
-                id: "temp-id",
-                userId: user ? user.uid : "unknown",
-                date: dayjs().toISOString(),
-                activityName: "",
-                activityDuration: 0,
-                upperIntensity: 0,
-                fingersIntensity: 0,
-                lowerIntensity: 0,
-                performance: 0,
-              });
-            }}
-          />
-        </Grid>
-      </Grid>
+      <NewActivityButton
+        onClick={() => {
+          setOpen(true);
+          setActivityData({
+            id: "temp-id",
+            userId: user ? user.uid : "unknown",
+            date: dayjs().toISOString(),
+            activityName: "",
+            activityDuration: 0,
+            upperIntensity: 0,
+            fingersIntensity: 0,
+            lowerIntensity: 0,
+            performance: 0,
+          });
+        }}
+      />
+
       <ActivityWritingDialog
         open={open}
         onClose={() => {
