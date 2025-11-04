@@ -3,7 +3,7 @@ import ActivityDataGrid from "./ActivityDataGrid";
 import NewActivityButton from "./buttons/NewActivityButton";
 import ActivityWritingDialog from "./ActivityWritingDialog";
 import { useEffect, useState } from "react";
-import type { GridColDef } from "@mui/x-data-grid";
+import type { GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import type { ActivityData } from "../../types/ActivityData";
 import EditIcon from "@mui/icons-material/Edit";
 import { GetActivityColumns } from "./GetActivityColumns";
@@ -62,13 +62,14 @@ function ActivitySection() {
   // this useEffect handles user data fetching once logged in or out
   useEffect(fetchActivityDataForUser, [user]);
 
-  function RenderEditButton() {
+  function RenderEditButton(params: GridRenderCellParams) {
     return (
       <strong>
         <Button
           sx={{ width: 30, height: 30, minWidth: 30 }}
           variant="contained"
           onClick={() => {
+            setActivityData(params.row);
             setOpen(true);
           }}
         >
@@ -119,7 +120,10 @@ function ActivitySection() {
       </Grid>
       <ActivityWritingDialog
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => {
+          setOpen(false);
+          fetchActivityDataForUser();
+        }}
         activityData={activityData}
         setActivityData={setActivityData}
       />
