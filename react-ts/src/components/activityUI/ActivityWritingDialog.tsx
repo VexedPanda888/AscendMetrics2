@@ -1,4 +1,3 @@
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import {
   Dialog,
   DialogActions,
@@ -18,6 +17,10 @@ import {
   deleteActivityData,
   updateActivityData,
 } from "../../firebase/database";
+import { lazy } from "react";
+const DatePicker = lazy(() =>
+  import("@mui/x-date-pickers").then((m) => ({ default: m.DatePicker }))
+);
 
 interface ActivityWritingDialogProps {
   open: boolean;

@@ -1,6 +1,8 @@
+import { lazy } from "react";
 import type { TimeSeries } from "../../types/TimeSeries";
-import { BarChart } from "@mui/x-charts/BarChart";
-
+const BarChart = lazy(() =>
+  import("@mui/x-charts").then((m) => ({ default: m.BarChart }))
+);
 interface TimeSeriesBarChartProps {
   timeSeries?: TimeSeries;
 }
