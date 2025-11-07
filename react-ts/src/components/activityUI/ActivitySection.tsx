@@ -11,6 +11,8 @@ import { useUser } from "../../firebase/hooks";
 import dayjs from "dayjs";
 import { getActivityDataForUser } from "../../firebase/database";
 import TimeSeriesBarChart from "../charts/TimeSeriesBarChart";
+import calculateWorkloadBalance from "../../metrics/workloadBalance";
+import calculateDailyLoads from "../../metrics/dailyLoads";
 
 function ActivitySection() {
   const [open, setOpen] = useState(false);
@@ -96,9 +98,9 @@ function ActivitySection() {
   return (
     <Box>
       <TimeSeriesBarChart
-      // timeSeries={calculateWorkloadBalance(
-      //   calculateDailyLoads(allActivities)
-      // )}
+        timeSeries={calculateWorkloadBalance(
+          calculateDailyLoads(allActivities)
+        )}
       />
       <NewActivityButton
         onClick={() => {

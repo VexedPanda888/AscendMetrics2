@@ -22,7 +22,7 @@ export default function calculateDailyLoads(
         activity.lowerIntensity) /
       3;
 
-    const load = averageIntensity * activity.activityDuration;
+    const load = (averageIntensity * activity.activityDuration) / 60;
 
     const activityDate = dayjs(activity.date).startOf("day");
     const daysDiff = activityDate.diff(startDate, "day");
@@ -33,5 +33,6 @@ export default function calculateDailyLoads(
   }
 
   const dailyLoads: TimeSeries = { dates: dates, values: values };
+  console.log(dailyLoads);
   return dailyLoads;
 }
