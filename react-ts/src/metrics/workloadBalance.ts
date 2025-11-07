@@ -11,12 +11,12 @@ export default function calculateWorkloadBalance(
   const thirtyDayEWMA = calculateEWMA(30, dailyLoads);
   const sevenDayEWMA = calculateEWMA(7, dailyLoads);
 
-  if (thirtyDayEWMA.dates.length() != sevenDayEWMA.dates.length()) {
+  if (thirtyDayEWMA.dates.length != sevenDayEWMA.dates.length) {
     throw Error;
   }
 
   const workloadBalance: TimeSeries = { dates: [], values: [] };
-  for (let i = 0; i < thirtyDayEWMA.dates.length(); i++) {
+  for (let i = 0; i < thirtyDayEWMA.dates.length; i++) {
     const workloadValue = sevenDayEWMA.values[i] / thirtyDayEWMA.values[i];
     workloadBalance.values.push(workloadValue);
 
