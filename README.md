@@ -1,6 +1,6 @@
 # AscendMetrics2
 
-Welcome to the AscendMetrics2 project. This is a full stack web application using Firebase and React. The primary goals are to quantify training volume and inform users of their overtraining risk.
+Welcome to the AscendMetrics2 project. This is a full stack web application using Firebase and React. The primary goals are to quantify training volume and inform users of their overtraining risk. See the deployed version here: https://ascendmetrics2.web.app/
 
 ## Set Up
 
