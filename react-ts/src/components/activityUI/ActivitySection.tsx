@@ -98,9 +98,9 @@ function ActivitySection() {
   return (
     <Box>
       <TimeSeriesBarChart
-        timeSeries={calculateWorkloadBalance(
-          calculateDailyLoads(allActivities)
-        )}
+      // timeSeries={calculateWorkloadBalance(
+      //   calculateDailyLoads(allActivities)
+      // )}
       />
       <NewActivityButton
         onClick={() => {
